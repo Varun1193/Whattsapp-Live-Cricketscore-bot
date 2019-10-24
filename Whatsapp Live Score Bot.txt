@@ -16,7 +16,7 @@ class ScoreGet:
 
         self.url_get_score="http://cricapi.com/api/cricketScore"
 
-        self.api_key = "kZs6R72whTb0trIcvSlCBKxPPOr1"
+        self.api_key = "THE GENERATED RANDOM API KEY"
 
         self.unique_id = ""  # unique to every match
 
