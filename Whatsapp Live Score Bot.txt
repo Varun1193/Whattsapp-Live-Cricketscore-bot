@@ -20,7 +20,9 @@ class ScoreGet:
 
         self.unique_id = ""  # unique to every match
 
-
+       ''''
+       EXTRACTING THE UNIQUE ID OF THE MATCH WE ARE INTERESTED IN
+       '''''
 
     def get_unique_id(self):
 
@@ -42,11 +44,11 @@ class ScoreGet:
 
         for i in resp_dict['matches']:
 
-            if (i['team-1'] == "Hong Kong" or i['team-2'] == "Hong Kong") and i['matchStarted']:
+            if (i['team-1'] == "NAME OF THE TEAM" or i['team-2'] == "NAME OF THE TEAM") and i['matchStarted']:
 
                 
 
-                todays_date = "2019-10-18"
+                todays_date = "DATE YOU ARE INTERESTED IN"
 
                 if todays_date == i['date'].split("T")[0]:
 
@@ -68,6 +70,12 @@ class ScoreGet:
         print(send_data)
 
         return send_data
+
+'''''
+EXTRACTING THE SCORE OF THE MATCH USING THE UNIQUE ID
+'''''
+
+
 
     def get_score(self,unique_id):
 
@@ -100,7 +108,9 @@ class ScoreGet:
 
 
 
-
+''''''
+LINKING SENDER NETWORK WITH THE RECIEVER ID USING TWILIO ID AND SENDIGN THE TEXT
+''''''
 
 
 if __name__ == "__main__":
@@ -108,9 +118,9 @@ if __name__ == "__main__":
     obj_score=ScoreGet()
     text=obj_score.get_unique_id()
     from twilio.rest import Client
-    a_sid="AC4a113f685ec772bbcb0dfb0dd1f77555"
-    auth_token="627b744131e6bce18d210dd8c78b7930"
+    a_sid="NETWORK ID OF THE RECIEVER"
+    auth_token="NETWORK ID OF THE SENDER"
     client=Client(a_sid,auth_token)
-    message=client.messages.create(body=text,from_='whatsapp:+14155238886',to='whatsapp:+917009746580')
+    message=client.messages.create(body=text,from_='whatsapp:+14155238886',to='whatsapp:+CONTACT NO OF THE RECIEVER')
 
 
